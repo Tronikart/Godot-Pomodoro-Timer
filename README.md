@@ -1,8 +1,12 @@
+
+![image](http://i.imgur.com/tpFBSfp.png)
 # Godot Pomodoro Timer
 
-Simple pomodoro timer used to improve your time studying using http://www.godotengine.org/  
+Simple pomodoro timer with messages and sound notifications used to improve your time studying using http://www.godotengine.org/  
 
-licensed under the GNU General Public License.
+With very simple configuration you can use this pomtimer right away, the default time is 25 minutes for the full pomodoro and 5 minutes for a break, but you can change this with the menu options, this will only modify it for this session
+
+licensed under MIT license
 
 # How to use it
 
