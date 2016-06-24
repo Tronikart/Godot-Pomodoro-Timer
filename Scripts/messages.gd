@@ -19,6 +19,8 @@ func get_break():
 	randomize()
 	self.clear()
 	self.add_text(break_messages[randi()%break_messages.size()]) 
+
+
 	
 var study_messages = [
 					'Study study!',

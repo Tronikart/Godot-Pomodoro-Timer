@@ -7,23 +7,25 @@ onready var count = controller.get_count()
 
 func restart():
 	# If it was break time, change it back
+	
 	if controller.get_break_time():
 		controller.change_break_time()
 	else:
+		count = controller.get_count()
+		print ("count", count)
 		pass
 	# Update the timer
-	count = controller.get_count()
 	self.clear()
 	# If it already started, just change the text
 	# If it was running, pause it, reset the count and pause it
-	if controller.get_start():
+	if !controller.get_start():
 		controller.toggle_start()
 		controller.set_pom(0)
 		get_node("/root/Node2D/start").set_text("start")
 		get_node("/root/Node2D/start").set_pos(Vector2(126, 286))
 		self.add_text("Study time: " + controller.toTime(count) + "\n\nPress start to begin this study session")
 	else:
-		self.add_text("Study time: " + controller.toTime(count) + "\n\nPress start to begin this study session")
+		self.add_text("Study time: " + controller.toTime(count))
 	# set the max value and the bar to full
 	studyBar.set_max_val(controller.get_count())
 	studyBar.set_val(controller.get_count())
@@ -33,6 +35,7 @@ func _ready():
 	self.add_text("Study time: " + controller.toTime(count) + "\n\nPress start to begin this study session")
 
 func _on_Timer_timeout():
+	print ("pom", controller.get_break_time(), " ", controller.get_count(), " ", count)
 	# If theres no break time and it started
 	if !controller.get_break_time() and controller.get_start():
 		count -= 1
@@ -49,6 +52,7 @@ func _on_Timer_timeout():
 			controller.change_break_time()
 			# Play pom done sound
 			get_node("/root/Node2D/pomDone").play_sound()
+			controller.restart()
 			self.clear()
 		else:
 			pass

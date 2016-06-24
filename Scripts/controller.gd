@@ -16,6 +16,10 @@ func _ready():
 ##############################
 ## SETTERS AND GETTERS
 ##############################
+# RESTART TIMER
+func restart():
+	count = timer*60
+	
 # START
 func get_start():
 	return start
@@ -84,6 +88,3 @@ func toTime(p):
 	var minutes = p/60
 	var secs = p%60
 	return (str(minutes).pad_zeros(2) + ":" + str(secs).pad_zeros(2))
-
-func restart():
-	pass

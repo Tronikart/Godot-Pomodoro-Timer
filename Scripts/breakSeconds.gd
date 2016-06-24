@@ -25,6 +25,10 @@ func _on_Timer_timeout():
 		if break_count < 1:
 			# Change the status of the break time
 			controller.change_break_time()
+			# play sound
+			get_node("/root/Node2D/breakDone").play_sound()
+			get_node("/root/Node2D/studyTime").restart()
+			print (controller.get_break_time())
 			
 	else:
 		pass
